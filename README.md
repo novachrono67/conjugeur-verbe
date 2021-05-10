@@ -1,6 +1,6 @@
 ## Conjugeur de verbes ##
 
-#Prérequis#
+# Prérequis #
 
 Pour exécuter le client et le serveur, veuillez télécharger le jdk 11 de BellSoft avec le package "full jdk":
 https://bell-sw.com/pages/downloads/#/java-11-lts
