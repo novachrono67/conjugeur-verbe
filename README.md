@@ -1,2 +1,2 @@
-# conjugeur-adventure
+# conjugeur-verbe
 Client - Serveur permettant de conjuguer des verbes
