@@ -4,11 +4,10 @@ import Verbe.Verbe;
 public class TerminaisonAITRE extends Verbe
 {
 	private static String TERMINAISON = "aître";
-	private static String MESSAGE_ERREUR = "Il ne s'agit pas d'un verbe du 3ème groupe finissant en \"-aître\"";
 
 	public TerminaisonAITRE(String verbe)
 	{
-		super(verbe, TERMINAISON, MESSAGE_ERREUR);
+		super(verbe, TERMINAISON);
 	}
 
 	@Override

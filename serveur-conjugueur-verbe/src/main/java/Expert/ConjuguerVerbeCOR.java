@@ -9,39 +9,39 @@ public abstract class ConjuguerVerbeCOR implements ConjuguerVerbe
 		this.suivant = expertSuivant ;
 	}
 
-	public String conjugue(String verbeatraduire)
+	public String conjugue(String verbe)
 	{
-		String verbetraduit = this.conjugue1(verbeatraduire);
+		String verbeConjugue = this.conjugue1(verbe);
 
-		if(verbetraduit != null)
+		if(verbeConjugue != null)
 		{
-			return verbetraduit;
+			return verbeConjugue;
 		}
 
 		else if(this.suivant != null)
 		{
-			return this.suivant.conjugue(verbeatraduire);
+			return this.suivant.conjugue(verbe);
 		}
 
 		else return null;
 	}
 	
-	private String conjugue1(String verbeatraduire)
+	private String conjugue1(String verbe)
 	{
-		String verbetraduit;
-		verbetraduit = conjugue2(verbeatraduire); // ce traducteur tente de prendre en charge la traduction
+		String verbeConjugue;
+		verbeConjugue = conjugue2(verbe); // ce traducteur tente de prendre en charge la traduction
 
-		if (verbetraduit != null) // succès de ce traducteur
+		if (verbeConjugue != null) // succès de ce traducteur
 		{
-			return verbetraduit;
+			return verbeConjugue;
 		}
 
 		else if (this.suivant != null) // puisque il y a un suivant, on lui confie la tâche de traduction
 		{
-			return this.suivant.conjugue1(verbeatraduire);
+			return this.suivant.conjugue1(verbe);
 		}
 
-		else return null;
+		else return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
 	}
 
 	//  savoir-faire de l'un des traducteurs de la chaîne

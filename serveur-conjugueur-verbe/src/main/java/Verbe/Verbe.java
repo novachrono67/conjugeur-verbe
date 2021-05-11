@@ -4,16 +4,10 @@ public abstract class Verbe
  {
 	protected String radical;
 	protected String terminaison;
-	protected String messageErreur;
 
-	public Verbe(String v, String terminaison, String message_erreur)
+	public Verbe(String v, String terminaison)
 	{
 		this.terminaison = terminaison;
-		this.messageErreur = message_erreur;
-		if(!v.endsWith(this.terminaison))
-		{
-			throw new IllegalArgumentException(this.messageErreur);
-		}
 		this.radical = v.substring(0, v.length() - this.terminaison.length());
 	}
 

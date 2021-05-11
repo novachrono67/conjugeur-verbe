@@ -3,10 +3,9 @@ package Verbe;
 public class Verbe1erGroupe extends Verbe
 {
 	private static String TERMINAISON = "er";
-	private static String MESSAGE_ERREUR = "Il ne s'agit pas d'un verbe du 1er groupe";
 
 	public Verbe1erGroupe(String verbe){
-		super(verbe, TERMINAISON, MESSAGE_ERREUR);
+		super(verbe, TERMINAISON);
 	}
 
 	@Override

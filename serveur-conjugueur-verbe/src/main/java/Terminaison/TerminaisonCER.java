@@ -4,11 +4,10 @@ import Verbe.Verbe;
 public class TerminaisonCER extends Verbe
 {
 	private static String TERMINAISON = "cer";
-	private static String MESSAGE_ERREUR = "Il ne s'agit pas d'un verbe du 1er groupe finissant en \"-cer\"";
 
 	public TerminaisonCER(String verbe)
 	{
-		super(verbe, TERMINAISON, MESSAGE_ERREUR);
+		super(verbe, TERMINAISON);
 	}
 	
 	@Override
