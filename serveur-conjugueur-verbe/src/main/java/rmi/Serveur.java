@@ -1,17 +1,10 @@
-package Serveur;
+package rmi;
 
-import Expert.*;
-
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.rmi.Naming;
-import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class Serveur
 {
@@ -22,12 +15,10 @@ public class Serveur
     {
         try
         {
-            if (System.getSecurityManager() == null) {
-                System.setSecurityManager(new RMISecurityManager());
-            }
 
             Conjugaison conjugaison = new Conjugaison();
-            LocateRegistry.createRegistry(PORT_SERVEUR);
+            Registry registry = LocateRegistry.createRegistry(PORT_SERVEUR);
+            System.out.println(registry.toString());
             Naming.rebind("rmi://localhost:" + PORT_SERVEUR + "/" + ENDPOINT_SERVEUR, conjugaison);
             System.out.println ("Serveur Conjugaison Prêt");
         }

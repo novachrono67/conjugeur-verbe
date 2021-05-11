@@ -1,7 +1,7 @@
-package Serveur;
+package rmi;
 
-import Expert.*;
-import Verbe.Verbe;
+import expert.*;
+import verbe.Verbe;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

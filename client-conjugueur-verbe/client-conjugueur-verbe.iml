@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="liberica-11" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="11 (2)" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:17-ea+9" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:17-ea+9" level="project" />

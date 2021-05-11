@@ -1,11 +1,11 @@
-package Terminaison;
-import Verbe.Verbe;
+package terminaison;
+import verbe.Verbe;
 
-public class TerminaisonCER extends Verbe
+public class TerminaisonOUDRE extends Verbe
 {
-	private static String TERMINAISON = "cer";
+	private static String TERMINAISON = "oudre";
 
-	public TerminaisonCER(String verbe)
+	public TerminaisonOUDRE(String verbe)
 	{
 		super(verbe, TERMINAISON);
 	}
@@ -13,78 +13,78 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaison1erePS_Present()
 	{
-		return "ce";
+		return "ouds";
 	}
 
 	@Override
 	public String terminaison2emePS_Present()
 	{
-		return "ces";
+		return "ouds";
 	}
 
 	@Override
 	public String terminaison3emePS_Present()
 	{
-		return "ce";
+		return "oud";
 	}
 
 	@Override
 	public String terminaison1erePP_Present()
 	{
-		return "çons";
+		return "ousons";
 	}
 
 	@Override
 	public String terminaison2emePP_Present()
 	{
-		return "cez";
+		return "ousez";
 	}
 
 	@Override
 	public String terminaison3emePP_Present()
 	{
-		return "cent";
+		return "ousent";
 	}
 
 	@Override
 	public String terminaison1erePS_Futur()
 	{
-		return "cerai";
+		return "ai";
 	}
 
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "eras";
+		return "as";
 	}
 
 	@Override
 	public String terminaison3emePS_Futur()
 	{
-		return "cera";
+		return "a";
 	}
 
 	@Override
 	public String terminaison1erePP_Futur()
 	{
-		return "cerons";
+		return "ons";
 	}
 
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "cerons";
+		return "ez";
 	}
 
 	@Override
 	public String terminaison3emePP_Futur()
 	{
-		return "ceront";
+		return "ont";
 	}
 
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "é";
+		return "olu";
 	}
 }

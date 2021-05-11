@@ -1,4 +1,4 @@
-package Verbe;
+package verbe;
 
 public class Verbe2emeGroupe extends Verbe
 {

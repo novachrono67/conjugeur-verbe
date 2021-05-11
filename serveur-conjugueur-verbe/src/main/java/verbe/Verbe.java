@@ -1,4 +1,4 @@
-package Verbe;
+package verbe;
 
 public abstract class Verbe
  {

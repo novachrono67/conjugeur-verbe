@@ -1,11 +1,11 @@
-package Terminaison;
-import Verbe.Verbe;
+package terminaison;
+import verbe.Verbe;
 
-public class TerminaisonAITRE extends Verbe
+public class TerminaisonINDRE extends Verbe
 {
-	private static String TERMINAISON = "aître";
+	private static String TERMINAISON = "indre";
 
-	public TerminaisonAITRE(String verbe)
+	public TerminaisonINDRE(String verbe)
 	{
 		super(verbe, TERMINAISON);
 	}
@@ -13,78 +13,78 @@ public class TerminaisonAITRE extends Verbe
 	@Override
 	public String terminaison1erePS_Present()
 	{
-		return "ais";
+		return "ins";
 	}
 
 	@Override
 	public String terminaison2emePS_Present()
 	{
-		return "ais";
+		return "ins";
 	}
 
 	@Override
 	public String terminaison3emePS_Present()
 	{
-		return "aît";
+		return "int";
 	}
 
 	@Override
 	public String terminaison1erePP_Present()
 	{
-		return "aissons";
+		return "ignons";
 	}
 
 	@Override
 	public String terminaison2emePP_Present()
 	{
-		return "aissez";
+		return "ignez";
 	}
 
 	@Override
 	public String terminaison3emePP_Present()
 	{
-		return "aissent";
+		return "ignent";
 	}
 
 	@Override
 	public String terminaison1erePS_Futur()
 	{
-		return "aîtrai";
+		return "indrai";
 	}
 
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "aîtras";
+		return "indras";
 	}
 
 	@Override
 	public String terminaison3emePS_Futur()
 	{
-		return "aîtra";
+		return "indra";
 	}
 
 	@Override
 	public String terminaison1erePP_Futur()
 	{
-		return "aîtrons";
+		return "indrons";
 	}
 
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "aîtrez";
+		return "indrez";
 	}
 
 	@Override
 	public String terminaison3emePP_Futur()
 	{
-		return "aîtront";
+		return "indront";
 	}
 
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "u";
+		return "int";
 	}
 }

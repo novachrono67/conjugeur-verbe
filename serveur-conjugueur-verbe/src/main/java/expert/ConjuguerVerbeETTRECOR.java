@@ -1,7 +1,7 @@
-package Expert;
+package expert;
 
-import Terminaison.TerminaisonETTRE;
-import Verbe.Verbe;
+import terminaison.TerminaisonETTRE;
+import verbe.Verbe;
 
 public class ConjuguerVerbeETTRECOR extends ConjuguerVerbeCOR
 {

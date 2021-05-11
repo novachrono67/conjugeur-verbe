@@ -1,90 +1,89 @@
-package Terminaison;
-import Verbe.Verbe;
+package verbe;
 
-public class TerminaisonETTRE extends Verbe
+public class Verbe1erGroupe extends Verbe
 {
-	private static String TERMINAISON = "ettre";
+	private static String TERMINAISON = "er";
 
-	public TerminaisonETTRE(String verbe)
-	{
+	public Verbe1erGroupe(String verbe){
 		super(verbe, TERMINAISON);
 	}
 
 	@Override
 	public String terminaison1erePS_Present()
 	{
-		return "ets";
+		return "e";
 	}
 
 	@Override
 	public String terminaison2emePS_Present()
 	{
-		return "ets";
+		return "es";
 	}
 
 	@Override
 	public String terminaison3emePS_Present()
 	{
-		return "et";
+		return "e";
 	}
 
-	@Override
 	public String terminaison1erePP_Present()
 	{
-		return "ettons";
+		return "ons";
 	}
 
 	@Override
 	public String terminaison2emePP_Present()
 	{
-		return "ettez";
+		return "ez";
 	}
 
 	@Override
 	public String terminaison3emePP_Present()
 	{
-		return "ettent";
+		return "ent";
 	}
 
 	@Override
 	public String terminaison1erePS_Futur()
 	{
-		return "ettrai";
+		return "ai";
 	}
 
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "ettras";
+		return "as";
 	}
 
 	@Override
 	public String terminaison3emePS_Futur()
 	{
-		return "ettra";
+		return "a";
 	}
 
 	@Override
 	public String terminaison1erePP_Futur()
 	{
-		return "ettrons";
+		return "ons";
 	}
 
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "ettrez";
+		return "ez";
 	}
 
 	@Override
 	public String terminaison3emePP_Futur()
 	{
-		return "ettront";
+		return "ont";
 	}
 
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "is";
+		return "é";
 	}
 }
+
+
