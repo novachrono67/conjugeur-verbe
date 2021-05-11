@@ -1,9 +1,7 @@
 package Personne;
-import main.Verbe;
+import Verbe.Verbe;
 
-public abstract class Personne {
-
+public abstract class Personne
+{
 	public abstract String fonction(Verbe verbe);
-		
-	
 }
