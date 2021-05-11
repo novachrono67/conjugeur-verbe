@@ -33,7 +33,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         return v.conjuguePresent();
     }
 
-    public String conjuguerFutur(String verbe)
+    public String conjugueFutur(String verbe)
     {
         Verbe v = conjuguerVerbe.conjugue(verbe);
         if(v == null)
@@ -43,7 +43,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         return v.conjugueFutur();
     }
 
-    public String conjuguerPasseCompose(String verbe)
+    public String conjuguePasseCompose(String verbe)
     {
         Verbe v = conjuguerVerbe.conjugue(verbe);
         if(v == null)

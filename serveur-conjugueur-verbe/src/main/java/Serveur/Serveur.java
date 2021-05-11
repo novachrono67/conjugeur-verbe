@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.rmi.Naming;
+import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
@@ -21,6 +22,10 @@ public class Serveur
     {
         try
         {
+            if (System.getSecurityManager() == null) {
+                System.setSecurityManager(new RMISecurityManager());
+            }
+
             Conjugaison conjugaison = new Conjugaison();
             LocateRegistry.createRegistry(PORT_SERVEUR);
             Naming.rebind("rmi://localhost:" + PORT_SERVEUR + "/" + ENDPOINT_SERVEUR, conjugaison);
