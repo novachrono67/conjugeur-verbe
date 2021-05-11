@@ -15,12 +15,12 @@ public class Serveur
     {
         try
         {
+            Registry registry = LocateRegistry.createRegistry(PORT_SERVEUR);
+            System.out.println("RMI Registry: " + registry.toString() + "\n");
 
             Conjugaison conjugaison = new Conjugaison();
-            Registry registry = LocateRegistry.createRegistry(PORT_SERVEUR);
-            System.out.println(registry.toString());
             Naming.rebind("rmi://localhost:" + PORT_SERVEUR + "/" + ENDPOINT_SERVEUR, conjugaison);
-            System.out.println ("Serveur Conjugaison Prêt");
+            System.out.println ("Serveur Conjugaison Prêt \n");
         }
         catch (RemoteException e)
         {
