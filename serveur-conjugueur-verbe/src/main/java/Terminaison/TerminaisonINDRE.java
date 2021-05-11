@@ -3,51 +3,47 @@ import Verbe.Verbe;
 
 public class TerminaisonINDRE extends Verbe
 {
-	public TerminaisonINDRE(String verb){
-		super(verb);
+	private static String TERMINAISON = "indre";
+	private static String MESSAGE_ERREUR = "Il ne s'agit pas d'un verbe du 3ème groupe finissant en \"-indre\"";
+
+	public TerminaisonINDRE(String verbe)
+	{
+		super(verbe, TERMINAISON, MESSAGE_ERREUR);
 	}
 
 	@Override
-	public String terminaison1erePS() {
-		return "ins";
-	}
-
-	@Override
-	public String terminaison2emePS()
+	public String terminaison1erePS_Present()
 	{
 		return "ins";
 	}
 
 	@Override
-	public String terminaison3emePS()
+	public String terminaison2emePS_Present()
+	{
+		return "ins";
+	}
+
+	@Override
+	public String terminaison3emePS_Present()
 	{
 		return "int";
 	}
 
 	@Override
-	public String terminaison1erePP() {
+	public String terminaison1erePP_Present()
+	{
 		return "ignons";
 	}
 
 	@Override
-	public String terminaison2emePP()
+	public String terminaison2emePP_Present()
 	{
 		return "ignez";
 	}
 
 	@Override
-	public String terminaison3emePP()
+	public String terminaison3emePP_Present()
 	{
 		return "ignent";
-	}
-
-	@Override
-	public String terminaison() {
-		return "indre";
-	}
-
-	@Override
-	public String MessageErreur() {
-		return "Verbe en indre";
 	}
 }

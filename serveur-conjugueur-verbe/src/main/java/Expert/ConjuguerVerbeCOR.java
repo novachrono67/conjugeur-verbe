@@ -9,11 +9,6 @@ public abstract class ConjuguerVerbeCOR implements ConjuguerVerbe
 		this.suivant = expertSuivant ;
 	}
 
-	public void setSuivant(ConjuguerVerbeCOR suivant)
-	{
-		this.suivant = suivant;
-	}
-
 	public String conjugue(String verbeatraduire)
 	{
 		String verbetraduit = this.conjugue1(verbeatraduire);

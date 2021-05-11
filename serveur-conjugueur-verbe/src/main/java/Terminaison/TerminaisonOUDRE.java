@@ -3,56 +3,47 @@ import Verbe.Verbe;
 
 public class TerminaisonOUDRE extends Verbe
 {
-	public TerminaisonOUDRE(String verb)
+	private static String TERMINAISON = "oudre";
+	private static String MESSAGE_ERREUR = "Il ne s'agit pas d'un verbe du 3ème groupe finissant en \"-oudre\"";
+
+	public TerminaisonOUDRE(String verbe)
 	{
-		super(verb);
+		super(verbe, TERMINAISON, MESSAGE_ERREUR);
 	}
 	
 	@Override
-	public String terminaison1erePS()
+	public String terminaison1erePS_Present()
 	{
 		return "ouds";
 	}
 
 	@Override
-	public String terminaison2emePS()
+	public String terminaison2emePS_Present()
 	{
 		return "ouds";
 	}
 
 	@Override
-	public String terminaison3emePS()
+	public String terminaison3emePS_Present()
 	{
 		return "oud";
 	}
 
 	@Override
-	public String terminaison1erePP()
+	public String terminaison1erePP_Present()
 	{
 		return "ousons";
 	}
 
 	@Override
-	public String terminaison2emePP()
+	public String terminaison2emePP_Present()
 	{
 		return "ousez";
 	}
 
 	@Override
-	public String terminaison3emePP()
+	public String terminaison3emePP_Present()
 	{
 		return "ousent";
-	}
-
-	@Override
-	public String terminaison()
-	{
-		return "oudre";
-	}
-
-	@Override
-	public String MessageErreur()
-	{
-		return "Verbe en oudre";
 	}
 }

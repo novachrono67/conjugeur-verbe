@@ -22,7 +22,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         this.conjuguerVerbe = conjuguerVerbeINDRE;
     }
 
-    public String conjuguerPresent(String verbe)
+    public String conjuguePresent(String verbe)
     {
         return conjuguerVerbe.conjugue(verbe);
     }
@@ -35,5 +35,10 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     public String conjuguerFutur(String verbe)
     {
         return null;
+    }
+
+    public boolean testConnexion()
+    {
+        return true;
     }
 }

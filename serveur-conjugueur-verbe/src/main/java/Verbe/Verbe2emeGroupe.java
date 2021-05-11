@@ -2,54 +2,46 @@ package Verbe;
 
 public class Verbe2emeGroupe extends Verbe
 {
-	public Verbe2emeGroupe(String verb)
+	private static String TERMINAISON = "oudre";
+	private static String MESSAGE_ERREUR = "Il ne s'agit pas d'un verbe du 2ème groupe";
+
+	public Verbe2emeGroupe(String verbe)
 	{
-		super(verb);
+		super(verbe, TERMINAISON, MESSAGE_ERREUR);
 	}
-	
-	public String terminaison1erePS()
+
+	@Override
+	public String terminaison1erePS_Present()
 	{
 		return "is";
 	}
 
 	@Override
-	public String terminaison2emePS()
+	public String terminaison2emePS_Present()
 	{
 		return "is";
 	}
 
 	@Override
-	public String terminaison3emePS()
+	public String terminaison3emePS_Present()
 	{
 		return "it";
 	}
 
-	public String terminaison1erePP()
+	public String terminaison1erePP_Present()
 	{
 		return "issons";
 	}
 
 	@Override
-	public String terminaison2emePP()
+	public String terminaison2emePP_Present()
 	{
 		return "issez";
 	}
 
 	@Override
-	public String terminaison3emePP()
+	public String terminaison3emePP_Present()
 	{
 		return "issent";
-	}
-
-	@Override
-	public String terminaison()
-	{
-		return "ir";
-	}
-
-	@Override
-	public String MessageErreur()
-	{
-		return "Verbe2emeGroupe";
 	}
 }
