@@ -1,7 +1,9 @@
 package Expert;
 
+import Verbe.Verbe;
+
 public interface ConjuguerVerbe
 {	
-	public String conjugue(String VerbeaT);
+	Verbe conjugue(String VerbeaT);
 }
 

@@ -7,7 +7,7 @@ public interface IConjugaison extends Remote
 {
     String conjuguePresent(String verbe) throws RemoteException;
 
-    String conjuguerPasse(String verbe) throws RemoteException;
+    String conjuguerPasseCompose(String verbe) throws RemoteException;
 
     String conjuguerFutur(String verbe) throws RemoteException;
 

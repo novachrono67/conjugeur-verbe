@@ -10,12 +10,11 @@ public class ConjuguerVerbe1erGCOR extends ConjuguerVerbeCOR
 		super(expertSuivant);	
 	}
 
-	protected String conjugue2(String string)
+	protected Verbe conjugue2(String string)
 	{
 		if(string.endsWith("er"))
 		{
-			Verbe verbe = new Verbe1erGroupe(string);
-			return verbe.conjuguePresent();
+			return new Verbe1erGroupe(string);
 		}
 		return null;
 	}

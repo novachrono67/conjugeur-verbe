@@ -45,4 +45,46 @@ public class TerminaisonETTRE extends Verbe
 	{
 		return "ettent";
 	}
+
+	@Override
+	public String terminaison1erePS_Futur()
+	{
+		return "ettrai";
+	}
+
+	@Override
+	public String terminaison2emePS_Futur()
+	{
+		return "ettras";
+	}
+
+	@Override
+	public String terminaison3emePS_Futur()
+	{
+		return "ettra";
+	}
+
+	@Override
+	public String terminaison1erePP_Futur()
+	{
+		return "ettrons";
+	}
+
+	@Override
+	public String terminaison2emePP_Futur()
+	{
+		return "ettrez";
+	}
+
+	@Override
+	public String terminaison3emePP_Futur()
+	{
+		return "ettront";
+	}
+
+	@Override
+	public String terminaisonInfinitif()
+	{
+		return "is";
+	}
 }

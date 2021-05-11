@@ -11,12 +11,11 @@ public class ConjuguerVerbeINDRECOR extends ConjuguerVerbeCOR
 	}
 
 	@Override
-	protected String conjugue2(String string)
+	protected Verbe conjugue2(String string)
 	{
 		if(string.endsWith("indre"))
 		{
-			Verbe verbe = new TerminaisonINDRE(string);
-			return verbe.conjuguePresent();
+			return new TerminaisonINDRE(string);
 		}
 		return null;
 	}

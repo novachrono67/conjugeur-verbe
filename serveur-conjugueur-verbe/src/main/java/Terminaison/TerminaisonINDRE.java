@@ -45,4 +45,46 @@ public class TerminaisonINDRE extends Verbe
 	{
 		return "ignent";
 	}
+
+	@Override
+	public String terminaison1erePS_Futur()
+	{
+		return "indrai";
+	}
+
+	@Override
+	public String terminaison2emePS_Futur()
+	{
+		return "indras";
+	}
+
+	@Override
+	public String terminaison3emePS_Futur()
+	{
+		return "indra";
+	}
+
+	@Override
+	public String terminaison1erePP_Futur()
+	{
+		return "indrons";
+	}
+
+	@Override
+	public String terminaison2emePP_Futur()
+	{
+		return "indrez";
+	}
+
+	@Override
+	public String terminaison3emePP_Futur()
+	{
+		return "indront";
+	}
+
+	@Override
+	public String terminaisonInfinitif()
+	{
+		return "int";
+	}
 }

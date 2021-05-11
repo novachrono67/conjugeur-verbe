@@ -1,6 +1,7 @@
 package Serveur;
 
 import Expert.*;
+import Verbe.Verbe;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -24,17 +25,32 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
 
     public String conjuguePresent(String verbe)
     {
-        return conjuguerVerbe.conjugue(verbe);
-    }
-
-    public String conjuguerPasse(String verbe)
-    {
-        return null;
+        Verbe v = conjuguerVerbe.conjugue(verbe);
+        if(v == null)
+        {
+            return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+        }
+        return v.conjuguePresent();
     }
 
     public String conjuguerFutur(String verbe)
     {
-        return null;
+        Verbe v = conjuguerVerbe.conjugue(verbe);
+        if(v == null)
+        {
+            return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+        }
+        return v.conjugueFutur();
+    }
+
+    public String conjuguerPasseCompose(String verbe)
+    {
+        Verbe v = conjuguerVerbe.conjugue(verbe);
+        if(v == null)
+        {
+            return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+        }
+        return v.conjuguePasse();
     }
 
     public boolean testConnexion()

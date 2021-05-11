@@ -11,12 +11,11 @@ public class ConjuguerVerbeAITRECOR extends ConjuguerVerbeCOR
 	}
 
 	@Override
-	protected String conjugue2(String string)
+	protected Verbe conjugue2(String string)
 	{
 		if(string.endsWith("aître"))
 		{
-			Verbe verbe = new TerminaisonAITRE(string);
-			return verbe.conjuguePresent();
+			return new TerminaisonAITRE(string);
 		}
 		return null;
 	}

@@ -19,13 +19,13 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaison2emePS_Present()
 	{
-		return null;
+		return "ces";
 	}
 
 	@Override
 	public String terminaison3emePS_Present()
 	{
-		return null;
+		return "ce";
 	}
 
 	@Override
@@ -37,12 +37,54 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaison2emePP_Present()
 	{
-		return null;
+		return "cez";
 	}
 
 	@Override
 	public String terminaison3emePP_Present()
 	{
-		return null;
+		return "cent";
+	}
+
+	@Override
+	public String terminaison1erePS_Futur()
+	{
+		return "cerai";
+	}
+
+	@Override
+	public String terminaison2emePS_Futur()
+	{
+		return "eras";
+	}
+
+	@Override
+	public String terminaison3emePS_Futur()
+	{
+		return "cera";
+	}
+
+	@Override
+	public String terminaison1erePP_Futur()
+	{
+		return "cerons";
+	}
+
+	@Override
+	public String terminaison2emePP_Futur()
+	{
+		return "cerons";
+	}
+
+	@Override
+	public String terminaison3emePP_Futur()
+	{
+		return "ceront";
+	}
+
+	@Override
+	public String terminaisonInfinitif()
+	{
+		return "é";
 	}
 }

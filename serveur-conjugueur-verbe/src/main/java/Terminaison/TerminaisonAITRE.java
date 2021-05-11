@@ -45,4 +45,46 @@ public class TerminaisonAITRE extends Verbe
 	{
 		return "aissent";
 	}
+
+	@Override
+	public String terminaison1erePS_Futur()
+	{
+		return "aîtrai";
+	}
+
+	@Override
+	public String terminaison2emePS_Futur()
+	{
+		return "aîtras";
+	}
+
+	@Override
+	public String terminaison3emePS_Futur()
+	{
+		return "aîtra";
+	}
+
+	@Override
+	public String terminaison1erePP_Futur()
+	{
+		return "aîtrons";
+	}
+
+	@Override
+	public String terminaison2emePP_Futur()
+	{
+		return "aîtrez";
+	}
+
+	@Override
+	public String terminaison3emePP_Futur()
+	{
+		return "aîtront";
+	}
+
+	@Override
+	public String terminaisonInfinitif()
+	{
+		return "u";
+	}
 }

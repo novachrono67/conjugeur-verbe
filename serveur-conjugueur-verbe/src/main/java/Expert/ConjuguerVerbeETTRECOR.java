@@ -11,12 +11,11 @@ public class ConjuguerVerbeETTRECOR extends ConjuguerVerbeCOR
 	}
 
 	@Override
-	protected String conjugue2(String string)
+	protected Verbe conjugue2(String string)
 	{
 		if(string.endsWith("ettre"))
 		{
-			Verbe verbe = new TerminaisonETTRE(string);
-			return verbe.conjuguePresent();
+			return new TerminaisonETTRE(string);
 		}
 		return null;
 	}

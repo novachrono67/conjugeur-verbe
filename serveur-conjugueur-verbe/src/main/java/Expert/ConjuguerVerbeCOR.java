@@ -1,5 +1,7 @@
 package Expert;
 
+import Verbe.Verbe;
+
 public abstract class ConjuguerVerbeCOR implements ConjuguerVerbe
 {
 	protected ConjuguerVerbeCOR suivant;
@@ -9,9 +11,9 @@ public abstract class ConjuguerVerbeCOR implements ConjuguerVerbe
 		this.suivant = expertSuivant ;
 	}
 
-	public String conjugue(String verbe)
+	public Verbe conjugue(String verbe)
 	{
-		String verbeConjugue = this.conjugue1(verbe);
+		Verbe verbeConjugue = this.conjugue1(verbe);
 
 		if(verbeConjugue != null)
 		{
@@ -26,9 +28,9 @@ public abstract class ConjuguerVerbeCOR implements ConjuguerVerbe
 		else return null;
 	}
 	
-	private String conjugue1(String verbe)
+	private Verbe conjugue1(String verbe)
 	{
-		String verbeConjugue;
+		Verbe verbeConjugue;
 		verbeConjugue = conjugue2(verbe); // ce traducteur tente de prendre en charge la traduction
 
 		if (verbeConjugue != null) // succès de ce traducteur
@@ -41,9 +43,9 @@ public abstract class ConjuguerVerbeCOR implements ConjuguerVerbe
 			return this.suivant.conjugue1(verbe);
 		}
 
-		else return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+		else return null;
 	}
 
 	//  savoir-faire de l'un des traducteurs de la chaîne
-	protected abstract String conjugue2(String string);
+	protected abstract Verbe conjugue2(String string);
 }
