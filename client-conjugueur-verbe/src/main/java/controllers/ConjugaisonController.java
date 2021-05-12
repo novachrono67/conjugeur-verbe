@@ -15,6 +15,9 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+/**
+ * Classe contrôleur de la vue Conjugaison
+ */
 public class ConjugaisonController
 {
     private ObservableList<String> list = FXCollections.observableArrayList("Présent", "Futur", "Passé composé");
