@@ -7,13 +7,14 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.11" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="226.0" layoutY="138.0" />
-      <TextField layoutX="226.0" layoutY="200.0" />
+      <TextField layoutX="226.0" layoutY="138.0"/>
+      <TextField layoutX="226.0" layoutY="200.0"/>
       <Button layoutX="251.0" layoutY="272.0" mnemonicParsing="false" text="Connexion">
          <font>
-            <Font size="16.0" />
+            <Font size="16.0"/>
          </font>
       </Button>
       <Label layoutX="185.0" layoutY="43.0" text="Connexion au rmi">
