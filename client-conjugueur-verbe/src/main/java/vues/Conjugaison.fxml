@@ -12,14 +12,14 @@
          </font>
       </Label>
       <TextField fx:id="infinitif" layoutX="119.0" layoutY="117.0"/>
-      <Label layoutX="33.0" layoutY="120.0" text="Infinitif saisi :">
+      <Label layoutX="52.0" layoutY="120.0" text="Infinitif :">
          <font>
             <Font size="14.0"/>
          </font>
       </Label>
-      <Label layoutX="315.0" layoutY="120.0" text="Temps saisi :">
+      <Label layoutX="337.0" layoutY="120.0" prefWidth="59.0" text="Temps :">
          <font>
-            <Font size="14.0" />
+            <Font size="14.0"/>
          </font>
       </Label>
       <Label fx:id="estConnecte" layoutX="44.0" layoutY="26.0" text="Connecté">
@@ -29,6 +29,7 @@
       </Label>
       <TextArea fx:id="resultat" editable="false" layoutX="200.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" />
       <ComboBox fx:id="temps" layoutX="400.0" layoutY="117.0" prefWidth="150.0" />
-      <Button fx:id="btnRequete" layoutX="252.0" layoutY="361.0" mnemonicParsing="false" onAction="#SendRequest" text="Envoie requête" />
+      <Button fx:id="btnRequete" layoutX="264.0" layoutY="361.0" mnemonicParsing="false" onAction="#SendRequest"
+              text="Conjuguer"/>
    </children>
 </AnchorPane>

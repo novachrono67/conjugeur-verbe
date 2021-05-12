@@ -7,17 +7,17 @@
             prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.11"
             xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="adresseIp" layoutX="226.0" layoutY="138.0"/>
-      <TextField fx:id="port" layoutX="226.0" layoutY="200.0"/>
-      <Button fx:id="btnConnexion" layoutX="251.0" layoutY="272.0" mnemonicParsing="false" onAction="#UserConnexion"
+      <TextField fx:id="adresseIp" layoutX="227.0" layoutY="138.0"/>
+      <TextField fx:id="port" layoutX="226.0" layoutY="201.0"/>
+      <Button fx:id="btnConnexion" layoutX="252.0" layoutY="272.0" mnemonicParsing="false" onAction="#UserConnexion"
               text="Connexion">
          <font>
             <Font size="16.0"/>
          </font>
       </Button>
-      <Label layoutX="185.0" layoutY="43.0" text="Connexion au rmi">
+      <Label layoutX="244.0" layoutY="68.0" text="Connexion">
          <font>
-            <Font size="24.0" />
+            <Font size="24.0"/>
          </font>
       </Label>
       <Label layoutX="148.0" layoutY="140.0" text="Adresse IP">
