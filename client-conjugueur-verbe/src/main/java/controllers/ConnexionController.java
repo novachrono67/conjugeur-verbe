@@ -15,8 +15,8 @@ import java.rmi.RemoteException;
 
 public class ConnexionController
 {
-    public static String adresseServeur;
-    public static String portServeur;
+    private static String adresseServeur;
+    private static String portServeur;
 
     @FXML
     private TextField adresseIp;
@@ -65,5 +65,15 @@ public class ConnexionController
         Stage appStage = (Stage) btnConnexion.getScene().getWindow();
         appStage.setScene(scene);
         appStage.setTitle("Conjugaison");
+    }
+
+    public static String getAdresseServeur()
+    {
+        return adresseServeur;
+    }
+
+    public static String getPortServeur()
+    {
+        return portServeur;
     }
 }

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import rmi.IConjugaison;
 
 import java.io.IOException;
@@ -35,13 +36,9 @@ public class ConjugaisonController
 
 
     @FXML
-    void SendRequest() throws IOException
+    void SendRequest()
     {
-        try {
-            conjugaisonRequest();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        conjugaisonRequest();
     }
 
 
@@ -57,8 +54,10 @@ public class ConjugaisonController
     {
         boolean testConnexion = false;
         try {
-            LocateRegistry.getRegistry(1249);
-            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" + ConnexionController.adresseServeur + ":" + ConnexionController.portServeur + "/" + "conjugaison");
+            LocateRegistry.getRegistry(ConnexionController.getPortServeur());
+            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
+                    ConnexionController.getAdresseServeur() + ":" +
+                    ConnexionController.getPortServeur() + "/" + "conjugaison");
             testConnexion = obj.testConnexion();
         } catch (NotBoundException e) {
             System.out.println("Exception caught: " + e.getMessage());
@@ -71,19 +70,35 @@ public class ConjugaisonController
         }
 
         if (testConnexion) {
-            estConnecte.setText("Connecté au serveur");
+            estConnecte.setText("Connexion Réussie");
+            estConnecte.setTextFill(Color.GREEN);
         } else {
-            estConnecte.setText("Echec de connexion au serveur");
+            estConnecte.setText("Connexion Échouée");
+            estConnecte.setTextFill(Color.RED);
         }
     }
 
-    private void conjugaisonRequest() throws IOException
+    private void conjugaisonRequest()
     {
+        String conjugaison = "";
+
         try {
             LocateRegistry.getRegistry(1249);
-            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" + ConnexionController.adresseServeur + ":" + ConnexionController.portServeur + "/" + "conjugaison");
-            String conjugaisonPresent = obj.conjuguePresent(infinitif.getText().trim());
-            resultat.setText(conjugaisonPresent);
+            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
+                    ConnexionController.getAdresseServeur() + ":" +
+                    ConnexionController.getPortServeur() + "/" + "conjugaison");
+
+            String tempsChoisis = temps.getValue().toString();
+            if (tempsChoisis.equalsIgnoreCase("Présent")) {
+                conjugaison = obj.conjuguePresent(infinitif.getText().trim());
+            } else if (tempsChoisis.equalsIgnoreCase("Futur")) {
+                conjugaison = obj.conjugueFutur(infinitif.getText().trim());
+            } else if (tempsChoisis.equalsIgnoreCase("Passé composé")) {
+                conjugaison = obj.conjuguePasseCompose(infinitif.getText().trim());
+            } else {
+                //Popup window
+            }
+            resultat.setText(conjugaison);
         } catch (NotBoundException e) {
             System.out.println("Exception caught: " + e.getMessage());
         } catch (AccessException e) {
