@@ -85,7 +85,7 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "é";
+		return "cé";
 	}
 
 	public static String getTERMINAISON()
