@@ -31,7 +31,7 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaison1erePP_Present()
 	{
-		return "çons";
+		return "Ã§ons";
 	}
 
 	@Override
@@ -85,6 +85,11 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "é";
+		return "Ã©";
+	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
 	}
 }

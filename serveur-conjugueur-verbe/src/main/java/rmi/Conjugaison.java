@@ -13,14 +13,14 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     public Conjugaison() throws RemoteException
     {
         super();
-        ConjuguerVerbeCOR conjuguerVerbe1erG, conjuguerVerbe2emeG, conjuguerVerbeAITRE, conjuguerVerbeOUDRE, conjuguerVerbeETTRE, conjuguerVerbeINDRE;
-        conjuguerVerbe1erG = new ConjuguerVerbe1erGCOR(null);
-        conjuguerVerbe2emeG = new ConjuguerVerbe2emeGCOR(conjuguerVerbe1erG);
-        conjuguerVerbeAITRE = new ConjuguerVerbeAITRECOR(conjuguerVerbe2emeG);
-        conjuguerVerbeOUDRE = new ConjuguerVerbeOUDRECOR(conjuguerVerbeAITRE);
-        conjuguerVerbeETTRE = new ConjuguerVerbeETTRECOR(conjuguerVerbeOUDRE);
-        conjuguerVerbeINDRE = new ConjuguerVerbeINDRECOR(conjuguerVerbeETTRE);
-        this.conjuguerVerbe = conjuguerVerbeINDRE;
+        ConjuguerVerbeCOR conjuguerVerbe1erG = new ConjuguerVerbe1erGCOR(null);
+        ConjuguerVerbeCOR conjuguerVerbe2emeG = new ConjuguerVerbe2emeGCOR(conjuguerVerbe1erG);
+        ConjuguerVerbeCOR conjuguerVerbeAITRE = new ConjuguerVerbeAITRECOR(conjuguerVerbe2emeG);
+        ConjuguerVerbeCOR conjuguerVerbeOUDRE = new ConjuguerVerbeOUDRECOR(conjuguerVerbeAITRE);
+        ConjuguerVerbeCOR conjuguerVerbeETTRE = new ConjuguerVerbeETTRECOR(conjuguerVerbeOUDRE);
+        ConjuguerVerbeCOR conjuguerVerbeINDRE = new ConjuguerVerbeINDRECOR(conjuguerVerbeETTRE);
+        ConjuguerVerbeCOR conjuguerVerbeCER = new ConjuguerVerbeCERCOR(conjuguerVerbeINDRE);
+        this.conjuguerVerbe = conjuguerVerbeCER;
     }
 
     public String conjuguePresent(String verbe)
@@ -28,7 +28,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         Verbe v = conjuguerVerbe.conjugue(verbe);
         if(v == null)
         {
-            return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+            return getMessageErreur(verbe);
         }
         return v.conjuguePresent();
     }
@@ -38,7 +38,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         Verbe v = conjuguerVerbe.conjugue(verbe);
         if(v == null)
         {
-            return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+            return getMessageErreur(verbe);
         }
         return v.conjugueFutur();
     }
@@ -48,7 +48,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         Verbe v = conjuguerVerbe.conjugue(verbe);
         if(v == null)
         {
-            return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+            return getMessageErreur(verbe);
         }
         return v.conjuguePasse();
     }
@@ -56,5 +56,10 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     public boolean testConnexion()
     {
         return true;
+    }
+
+    private String getMessageErreur(String verbe)
+    {
+        return "ERREUR - Aucune conjugaison n'a Ã©tÃ© trouvÃ©e pour le verbe \"" + verbe + "\"";
     }
 }

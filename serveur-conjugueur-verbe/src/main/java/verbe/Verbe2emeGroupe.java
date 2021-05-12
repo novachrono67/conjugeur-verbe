@@ -85,4 +85,9 @@ public class Verbe2emeGroupe extends Verbe
 	{
 		return "i";
 	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
+	}
 }

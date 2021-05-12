@@ -1,5 +1,6 @@
 package expert;
 
+import terminaison.TerminaisonETTRE;
 import terminaison.TerminaisonINDRE;
 import verbe.Verbe;
 
@@ -13,7 +14,7 @@ public class ConjuguerVerbeINDRECOR extends ConjuguerVerbeCOR
 	@Override
 	protected Verbe conjugue2(String string)
 	{
-		if(string.endsWith("indre"))
+		if(string.endsWith(TerminaisonINDRE.getTERMINAISON()))
 		{
 			return new TerminaisonINDRE(string);
 		}

@@ -87,4 +87,9 @@ public class TerminaisonINDRE extends Verbe
 	{
 		return "int";
 	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
+	}
 }

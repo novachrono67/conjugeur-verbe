@@ -46,43 +46,48 @@ public class Verbe1erGroupe extends Verbe
 	@Override
 	public String terminaison1erePS_Futur()
 	{
-		return "ai";
+		return "erai";
 	}
 
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "as";
+		return "eras";
 	}
 
 	@Override
 	public String terminaison3emePS_Futur()
 	{
-		return "a";
+		return "era";
 	}
 
 	@Override
 	public String terminaison1erePP_Futur()
 	{
-		return "ons";
+		return "erons";
 	}
 
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "ez";
+		return "erez";
 	}
 
 	@Override
 	public String terminaison3emePP_Futur()
 	{
-		return "ont";
+		return "eront";
 	}
 
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "é";
+		return "Ã©";
+	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
 	}
 }
 

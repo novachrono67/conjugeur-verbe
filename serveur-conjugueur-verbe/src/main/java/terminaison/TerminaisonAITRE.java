@@ -3,7 +3,7 @@ import verbe.Verbe;
 
 public class TerminaisonAITRE extends Verbe
 {
-	private static String TERMINAISON = "aître";
+	private static String TERMINAISON = "aÃ®tre";
 
 	public TerminaisonAITRE(String verbe)
 	{
@@ -25,7 +25,7 @@ public class TerminaisonAITRE extends Verbe
 	@Override
 	public String terminaison3emePS_Present()
 	{
-		return "aît";
+		return "aÃ®t";
 	}
 
 	@Override
@@ -49,42 +49,47 @@ public class TerminaisonAITRE extends Verbe
 	@Override
 	public String terminaison1erePS_Futur()
 	{
-		return "aîtrai";
+		return "aÃ®trai";
 	}
 
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "aîtras";
+		return "aÃ®tras";
 	}
 
 	@Override
 	public String terminaison3emePS_Futur()
 	{
-		return "aîtra";
+		return "aitra";
 	}
 
 	@Override
 	public String terminaison1erePP_Futur()
 	{
-		return "aîtrons";
+		return "aÃ®trons";
 	}
 
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "aîtrez";
+		return "aÃ®trez";
 	}
 
 	@Override
 	public String terminaison3emePP_Futur()
 	{
-		return "aîtront";
+		return "aÃ®tront";
 	}
 
 	@Override
 	public String terminaisonInfinitif()
 	{
 		return "u";
+	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
 	}
 }

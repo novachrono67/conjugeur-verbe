@@ -1,5 +1,6 @@
 package expert;
 
+import terminaison.TerminaisonCER;
 import verbe.Verbe;
 import verbe.Verbe1erGroupe;
 
@@ -12,7 +13,7 @@ public class ConjuguerVerbe1erGCOR extends ConjuguerVerbeCOR
 
 	protected Verbe conjugue2(String string)
 	{
-		if(string.endsWith("er"))
+		if(string.endsWith(Verbe1erGroupe.getTERMINAISON()))
 		{
 			return new Verbe1erGroupe(string);
 		}

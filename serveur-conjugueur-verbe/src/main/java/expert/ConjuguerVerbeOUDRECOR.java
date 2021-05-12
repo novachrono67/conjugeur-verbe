@@ -13,7 +13,7 @@ public class ConjuguerVerbeOUDRECOR extends ConjuguerVerbeCOR
 	@Override
 	protected Verbe conjugue2(String string)
 	{
-		if(string.endsWith("oudre"))
+		if(string.endsWith(TerminaisonOUDRE.getTERMINAISON()))
 		{
 			return new TerminaisonOUDRE(string);
 		}

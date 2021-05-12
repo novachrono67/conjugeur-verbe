@@ -87,4 +87,9 @@ public class TerminaisonETTRE extends Verbe
 	{
 		return "is";
 	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
+	}
 }

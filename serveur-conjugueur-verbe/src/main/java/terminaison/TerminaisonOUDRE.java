@@ -49,42 +49,47 @@ public class TerminaisonOUDRE extends Verbe
 	@Override
 	public String terminaison1erePS_Futur()
 	{
-		return "ai";
+		return "oudrai";
 	}
 
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "as";
+		return "oudras";
 	}
 
 	@Override
 	public String terminaison3emePS_Futur()
 	{
-		return "a";
+		return "oudra";
 	}
 
 	@Override
 	public String terminaison1erePP_Futur()
 	{
-		return "ons";
+		return "oudrons";
 	}
 
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "ez";
+		return "oudrez";
 	}
 
 	@Override
 	public String terminaison3emePP_Futur()
 	{
-		return "ont";
+		return "oudront";
 	}
 
 	@Override
 	public String terminaisonInfinitif()
 	{
-		return "olu";
+		return "oulu";
+	}
+
+	public static String getTERMINAISON()
+	{
+		return TERMINAISON;
 	}
 }

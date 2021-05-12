@@ -13,7 +13,7 @@ public class ConjuguerVerbe2emeGCOR extends ConjuguerVerbeCOR
 	@Override
 	protected Verbe conjugue2(String string)
 	{
-		if(string.endsWith("ir"))
+		if(string.endsWith(Verbe2emeGroupe.getTERMINAISON()))
 		{
 			return new Verbe2emeGroupe(string);
 		}
