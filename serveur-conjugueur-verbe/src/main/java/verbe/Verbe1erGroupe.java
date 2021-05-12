@@ -26,6 +26,7 @@ public class Verbe1erGroupe extends Verbe
 		return "e";
 	}
 
+	@Override
 	public String terminaison1erePP_Present()
 	{
 		return "ons";
