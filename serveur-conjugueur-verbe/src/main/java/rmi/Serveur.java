@@ -1,6 +1,7 @@
 package rmi;
 
 import java.net.MalformedURLException;
+import java.rmi.AccessException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -21,13 +22,10 @@ public class Serveur
         try {
             Registry registry = LocateRegistry.createRegistry(PORT_SERVEUR);
             System.out.println("RMI Registry: " + registry.toString() + "\n");
-
             Conjugaison conjugaison = new Conjugaison();
             Naming.rebind("rmi://localhost:" + PORT_SERVEUR + "/" + ENDPOINT_SERVEUR, conjugaison);
             System.out.println("Serveur Conjugaison Prêt \n");
-        } catch (RemoteException e) {
-            System.out.println(e.getMessage());
-        } catch (MalformedURLException e) {
+        } catch (RemoteException | MalformedURLException e) {
             System.out.println(e.getMessage());
         }
     }
