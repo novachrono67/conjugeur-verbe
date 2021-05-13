@@ -32,7 +32,8 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         ConjuguerVerbeCOR conjuguerVerbeETTRE = new ConjuguerVerbeETTRECOR(conjuguerVerbeOUDRE);
         ConjuguerVerbeCOR conjuguerVerbeINDRE = new ConjuguerVerbeINDRECOR(conjuguerVerbeETTRE);
         ConjuguerVerbeCOR conjuguerVerbeCER = new ConjuguerVerbeCERCOR(conjuguerVerbeINDRE);
-        this.conjuguerVerbe = conjuguerVerbeCER;
+        ConjuguerVerbeCOR conjuguerVerbeGER = new ConjuguerVerbeGERCOR(conjuguerVerbeCER);
+        this.conjuguerVerbe = conjuguerVerbeGER;
 
         ConjuguerTempsCOR conjuguerTempsPresent = new ConjuguerTempsPresentCOR(null);
         ConjuguerTempsCOR conjuguerTempsFutur = new ConjuguerTempsFuturCOR(conjuguerTempsPresent);
