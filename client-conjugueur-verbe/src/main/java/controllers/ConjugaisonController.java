@@ -7,9 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import rmi.IConjugaison;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
-import java.rmi.AccessException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -45,7 +43,7 @@ public class ConjugaisonController
     }
 
 
-    public void initialize() throws IOException
+    public void initialize()
     {
         temps.setItems(list);
         temps.setValue("Choix d'un temps");
@@ -61,14 +59,9 @@ public class ConjugaisonController
             IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
                     ConnexionController.getAdresseServeur() + ":" +
                     ConnexionController.getPortServeur() + "/" + "conjugaison");
+
             testConnexion = obj.testConnexion();
-        } catch (NotBoundException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        } catch (AccessException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        } catch (RemoteException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        } catch (MalformedURLException e) {
+        } catch (NotBoundException | RemoteException | MalformedURLException e) {
             System.out.println("Exception caught: " + e.getMessage());
         }
 
@@ -84,33 +77,19 @@ public class ConjugaisonController
     private void conjugaisonRequest()
     {
         String conjugaison = "";
+        String verbeChoisis = infinitif.getText().trim();
+        String tempsChoisis = temps.getValue().toString().trim();
 
         try {
-            LocateRegistry.getRegistry(1249);
+            LocateRegistry.getRegistry(ConnexionController.getPortServeur());
             IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
                     ConnexionController.getAdresseServeur() + ":" +
                     ConnexionController.getPortServeur() + "/" + "conjugaison");
 
-            String tempsChoisis = temps.getValue().toString();
-            if (tempsChoisis.equalsIgnoreCase("Présent")) {
-                conjugaison = obj.conjuguePresent(infinitif.getText().trim());
-            } else if (tempsChoisis.equalsIgnoreCase("Futur")) {
-                conjugaison = obj.conjugueFutur(infinitif.getText().trim());
-            } else if (tempsChoisis.equalsIgnoreCase("Passé composé")) {
-                conjugaison = obj.conjuguePasseCompose(infinitif.getText().trim());
-            } else {
-                //Popup window
-            }
+            conjugaison = obj.conjugueTemps(verbeChoisis, tempsChoisis);
             resultat.setText(conjugaison);
-        } catch (NotBoundException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        } catch (AccessException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        } catch (RemoteException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        } catch (MalformedURLException e) {
+        } catch (NotBoundException | RemoteException | MalformedURLException e) {
             System.out.println("Exception caught: " + e.getMessage());
         }
     }
-
 }
