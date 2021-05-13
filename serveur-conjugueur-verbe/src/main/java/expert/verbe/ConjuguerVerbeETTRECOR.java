@@ -1,4 +1,4 @@
-package expert;
+package expert.verbe;
 
 import terminaison.TerminaisonETTRE;
 import verbe.Verbe;

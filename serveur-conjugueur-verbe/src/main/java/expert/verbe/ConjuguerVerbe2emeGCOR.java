@@ -1,4 +1,4 @@
-package expert;
+package expert.verbe;
 
 import verbe.Verbe;
 import verbe.Verbe2emeGroupe;

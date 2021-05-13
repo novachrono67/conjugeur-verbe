@@ -1,6 +1,5 @@
-package expert;
+package expert.verbe;
 
-import terminaison.TerminaisonETTRE;
 import terminaison.TerminaisonINDRE;
 import verbe.Verbe;
 

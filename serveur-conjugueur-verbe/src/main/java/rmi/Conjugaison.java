@@ -1,6 +1,8 @@
 package rmi;
 
-import expert.*;
+import expert.temps.*;
+import expert.verbe.*;
+import temps.Temps;
 import verbe.Verbe;
 
 import java.rmi.RemoteException;
@@ -12,6 +14,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class Conjugaison extends UnicastRemoteObject implements IConjugaison
 {
     private ConjuguerVerbe conjuguerVerbe;
+    private ConjuguerTemps conjuguerTemps;
 
     /**
      * Constructeur créant la chain of responsibility
@@ -21,6 +24,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     public Conjugaison() throws RemoteException
     {
         super();
+
         ConjuguerVerbeCOR conjuguerVerbe1erG = new ConjuguerVerbe1erGCOR(null);
         ConjuguerVerbeCOR conjuguerVerbe2emeG = new ConjuguerVerbe2emeGCOR(conjuguerVerbe1erG);
         ConjuguerVerbeCOR conjuguerVerbeAITRE = new ConjuguerVerbeAITRECOR(conjuguerVerbe2emeG);
@@ -29,54 +33,26 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         ConjuguerVerbeCOR conjuguerVerbeINDRE = new ConjuguerVerbeINDRECOR(conjuguerVerbeETTRE);
         ConjuguerVerbeCOR conjuguerVerbeCER = new ConjuguerVerbeCERCOR(conjuguerVerbeINDRE);
         this.conjuguerVerbe = conjuguerVerbeCER;
+
+        ConjuguerTempsCOR conjuguerTempsPresent = new ConjuguerTempsPresentCOR(null);
+        ConjuguerTempsCOR conjuguerTempsFutur = new ConjuguerTempsFuturCOR(conjuguerTempsPresent);
+        ConjuguerTempsCOR conjuguerTempsPasseCompose = new ConjuguerTempsPasseComposeCOR(conjuguerTempsFutur);
+        this.conjuguerTemps = conjuguerTempsPasseCompose;
     }
 
-    /**
-     * Crée un string contenant la conjuguaison au présent simple des 3 personnes du singulier et du pluriel
-     * Si aucune conjugaison n'est trouvée, la méthode revoie un message d'erreur
-     *
-     * @param verbe L'infinitif du verbe à conjuguer
-     * @return String
-     */
-    public String conjuguePresent(String verbe)
+    public String conjugueTemps(String verbe, String temps)
     {
         Verbe v = conjuguerVerbe.conjugue(verbe);
-        if (v == null) {
-            return getMessageErreur(verbe);
-        }
-        return v.conjuguePresent();
-    }
+        Temps t = conjuguerTemps.conjugue(temps);
 
-    /**
-     * Crée un string contenant la conjuguaison au futur simlpe des 3 personnes du singulier et du pluriel
-     * Si aucune conjugaison n'est trouvée, la méthode revoie un message d'erreur
-     *
-     * @param verbe L'infinitif du verbe à conjuguer
-     * @return String
-     */
-    public String conjugueFutur(String verbe)
-    {
-        Verbe v = conjuguerVerbe.conjugue(verbe);
         if (v == null) {
-            return getMessageErreur(verbe);
+            return erreurVerbe(verbe);
         }
-        return v.conjugueFutur();
-    }
+        if (t == null) {
+            return erreurTemps(temps);
+        }
 
-    /**
-     * Crée un string contenant la conjuguaison au futur simlpe des 3 personnes du singulier et du pluriel
-     * Si aucune conjugaison n'est trouvée, la méthode revoie un message d'erreur
-     *
-     * @param verbe L'infinitif du verbe à conjuguer
-     * @return String
-     */
-    public String conjuguePasseCompose(String verbe)
-    {
-        Verbe v = conjuguerVerbe.conjugue(verbe);
-        if (v == null) {
-            return getMessageErreur(verbe);
-        }
-        return v.conjuguePasse();
+        return t.conjugue(v);
     }
 
     /**
@@ -91,13 +67,25 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     }
 
     /**
-     * Le message d'erreur renvoyé lorsque la conjugaison d'un verbe est introuvable
+     * Le message d'erreur renvoyé lorsqu'un verbe est introuvable
      *
      * @param verbe L'infinitif du verbe
      * @return Message d'erreur
      */
-    private String getMessageErreur(String verbe)
+    private String erreurVerbe(String verbe)
     {
-        return "ERREUR - Aucune conjugaison n'a été trouvée pour le verbe \"" + verbe + "\"";
+        return "ERREUR - Une conjuguaison pour le verbe \"" + verbe + "\" n'est actuellement pas implémenté " +
+                "ou n'existe pas";
+    }
+
+    /**
+     * Le message d'erreur renvoyé lorsqu'un temps est introuvable
+     *
+     * @param temps L'infinitif du verbe
+     * @return Message d'erreur
+     */
+    private String erreurTemps(String temps)
+    {
+        return "ERREUR - Le temps \"" + temps + "\" n'est actuellement pas implémenté ou n'existe pas";
     }
 }

@@ -1,6 +1,5 @@
-package expert;
+package expert.verbe;
 
-import terminaison.TerminaisonCER;
 import verbe.Verbe;
 import verbe.Verbe1erGroupe;
 
@@ -19,6 +18,4 @@ public class ConjuguerVerbe1erGCOR extends ConjuguerVerbeCOR
 		}
 		return null;
 	}
-
-	
 }
