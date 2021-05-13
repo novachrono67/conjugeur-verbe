@@ -55,7 +55,7 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaison2emePS_Futur()
 	{
-		return "eras";
+		return "ceras";
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class TerminaisonCER extends Verbe
 	@Override
 	public String terminaison2emePP_Futur()
 	{
-		return "cerons";
+		return "cerez";
 	}
 
 	@Override

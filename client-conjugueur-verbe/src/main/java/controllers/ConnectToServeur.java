@@ -1,19 +1,22 @@
-//package controllers;
-//
-//import java.rmi.Naming;
-//
-//public class ConnectToServeur {
-//    public static ConjugaisonInterface conjugaisonInterface;
-//
-//    public static ConjugaisonInterface magasin() {
-//        try{
-//            conjugaisonInterface = (ConjugaisonInterface) Naming.lookup("rmi://localhost:1249/conjugaison");
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println ("conjugaison exception: " + e);
-//        }
-//        return conjugaisonInterface;
-//    }
-//
-//}
+package controllers;
+
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+
+public class ConnectToServeur {
+    private static String adresse = "localhost";
+    private static String port = "1249";
+
+    public static void main(String[] args) throws RemoteException {
+        try{
+            IConjugaison conjugaisonInterface = (IConjugaison) Naming.lookup("rmi://"+ adresse +":"+ port +"/conjugaison");
+            conjugaisonInterface.testConnexion();
+            conjugaisonInterface.conjuguePresent("marcher");
+        }
+        catch (Exception e)
+        {
+            System.out.println ("conjugaison exception: " + e);
+        }
+    }
+
+}
