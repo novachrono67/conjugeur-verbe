@@ -51,7 +51,7 @@ public class ConjugaisonController
         testConnexionServeur();
     }
 
-    private void testConnexionServeur()
+    private boolean testConnexionServeur()
     {
         boolean testConnexion = false;
         try {
@@ -72,6 +72,8 @@ public class ConjugaisonController
             estConnecte.setText("Connexion Échouée");
             estConnecte.setTextFill(Color.RED);
         }
+
+        return testConnexion;
     }
 
     private void conjugaisonRequest()
@@ -80,16 +82,18 @@ public class ConjugaisonController
         String verbeChoisis = infinitif.getText().trim();
         String tempsChoisis = temps.getValue().toString().trim();
 
-        try {
-            LocateRegistry.getRegistry(ConnexionController.getPortServeur());
-            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
-                    ConnexionController.getAdresseServeur() + ":" +
-                    ConnexionController.getPortServeur() + "/" + "conjugaison");
+        if(testConnexionServeur()) {
+            try {
+                LocateRegistry.getRegistry(ConnexionController.getPortServeur());
+                IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
+                        ConnexionController.getAdresseServeur() + ":" +
+                        ConnexionController.getPortServeur() + "/" + "conjugaison");
 
-            conjugaison = obj.conjugueTemps(verbeChoisis, tempsChoisis);
-            resultat.setText(conjugaison);
-        } catch (NotBoundException | RemoteException | MalformedURLException e) {
-            System.out.println("Exception caught: " + e.getMessage());
+                conjugaison = obj.conjugueTemps(verbeChoisis, tempsChoisis);
+                resultat.setText(conjugaison);
+            } catch (NotBoundException | RemoteException | MalformedURLException e) {
+                System.out.println("Exception caught: " + e.getMessage());
+            }
         }
     }
 }
