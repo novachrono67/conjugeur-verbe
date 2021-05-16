@@ -3,6 +3,7 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import rmi.IConjugaison;
@@ -18,7 +19,10 @@ import java.rmi.registry.LocateRegistry;
  */
 public class ConjugaisonController
 {
-    private ObservableList<String> list = FXCollections.observableArrayList("Présent", "Futur", "Passé composé");
+    private String adresseIP;
+    private String port;
+
+    private ObservableList<String> list = FXCollections.observableArrayList("Présent", "Futur", "Passé composé", "Imparfait");
 
     @FXML
     private Label estConnecte;
@@ -30,6 +34,9 @@ public class ConjugaisonController
     private ComboBox temps;
 
     @FXML
+    private CheckBox subjonctif;
+
+    @FXML
     private Label labelError;
 
     @FXML
@@ -38,6 +45,13 @@ public class ConjugaisonController
     @FXML
     private Button btnRequete;
 
+    private Scene scene;
+
+    public ConjugaisonController(String adresseIP, String port)
+    {
+        this.adresseIP = adresseIP;
+        this.port = port;
+    }
 
     @FXML
     void SendRequest()
@@ -58,11 +72,8 @@ public class ConjugaisonController
     {
         boolean testConnexion = false;
         try {
-            LocateRegistry.getRegistry(ConnexionController.getPortServeur());
-            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
-                    ConnexionController.getAdresseServeur() + ":" +
-                    ConnexionController.getPortServeur() + "/" + "conjugaison");
-
+            LocateRegistry.getRegistry(adresseIP);
+            IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" + adresseIP + ":" + port + "/" + "conjugaison");
             testConnexion = obj.testConnexion();
         } catch (NotBoundException | RemoteException | MalformedURLException e) {
             System.out.println("Exception caught: " + e.getMessage());
@@ -84,21 +95,18 @@ public class ConjugaisonController
         String conjugaison = "";
         String verbeChoisis = infinitif.getText().trim();
         String tempsChoisis = temps.getValue().toString().trim();
+        boolean modeSubjonctif = subjonctif.isSelected();
 
         if(testConnexionServeur()) {
             try {
-                LocateRegistry.getRegistry(ConnexionController.getPortServeur());
-                IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" +
-                        ConnexionController.getAdresseServeur() + ":" +
-                        ConnexionController.getPortServeur() + "/" + "conjugaison");
-
-                conjugaison = obj.conjugueTemps(verbeChoisis, tempsChoisis);
-                if(conjugaison.toString().substring(0,6).equals("ERREUR")){
+                LocateRegistry.getRegistry(adresseIP);
+                IConjugaison obj = (IConjugaison) Naming.lookup("rmi://" + adresseIP + ":" + port + "/" + "conjugaison");
+                conjugaison = obj.conjugueTemps(verbeChoisis, tempsChoisis, modeSubjonctif);
+                if (conjugaison.startsWith("ERREUR")) {
                     labelError.setVisible(true);
                     labelError.setText(conjugaison);
                     resultat.clear();
-                }
-                else{
+                } else {
                     labelError.setVisible(false);
                     resultat.setText(conjugaison);
                 }

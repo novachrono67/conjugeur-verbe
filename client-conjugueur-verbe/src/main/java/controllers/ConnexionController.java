@@ -18,9 +18,6 @@ import java.rmi.RemoteException;
  */
 public class ConnexionController
 {
-    private static String adresseServeur;
-    private static String portServeur;
-
     @FXML
     private TextField adresseIp;
 
@@ -47,15 +44,15 @@ public class ConnexionController
 
     private void checkConnexion() throws IOException
     {
-        adresseServeur = adresseIp.getText();
-        portServeur = port.getText();
+        String adresseServeur = adresseIp.getText();
+        String portServeur = port.getText();
 
         String test = System.getProperty("user.dir");
         URL url = (new File(test + "\\src\\main\\java\\vues\\Conjugaison.fxml").toURI().toURL());
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         ConjugaisonController conjugaisonController;
         AnchorPane root = null;
-        conjugaisonController = new ConjugaisonController();
+        conjugaisonController = new ConjugaisonController(adresseServeur, portServeur);
         fxmlLoader.setController(conjugaisonController);
 
         try {
@@ -68,15 +65,5 @@ public class ConnexionController
         Stage appStage = (Stage) btnConnexion.getScene().getWindow();
         appStage.setScene(scene);
         appStage.setTitle("Conjugaison");
-    }
-
-    public static String getAdresseServeur()
-    {
-        return adresseServeur;
-    }
-
-    public static String getPortServeur()
-    {
-        return portServeur;
     }
 }

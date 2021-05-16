@@ -1,3 +1,5 @@
+package client;
+
 import controllers.ConnexionController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 
 
-public class Main extends Application {
+public class Client extends Application
+{
 
     private static Stage stg;
 
@@ -29,9 +32,7 @@ public class Main extends Application {
             AnchorPane root = null;
             try {
                 root = fxmlLoader.load();
-            }
-            catch (IOException e) {
-                // TODO Auto-generated catch block
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             Scene scene = new Scene(root);
@@ -39,7 +40,6 @@ public class Main extends Application {
             primaryStage.setTitle("Connexion");
             primaryStage.show();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
