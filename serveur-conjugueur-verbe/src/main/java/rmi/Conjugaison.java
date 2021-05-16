@@ -17,7 +17,7 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     private ConjuguerTemps conjuguerTemps;
 
     /**
-     * Constructeur créant la chain of responsibility
+     * Constructeur créant les "chain of responsibility"
      *
      * @throws RemoteException
      */
@@ -41,7 +41,15 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         this.conjuguerTemps = conjuguerTempsPasseCompose;
     }
 
-    public String conjugueTemps(String verbe, String temps)
+    /**
+     * Conjugue un verbe au temps voulu et au subjonctif si choisi
+     *
+     * @param verbe      L'infinitif du verbe à conjuguer
+     * @param temps      Le temps auquel on souhaite conjuguer le verbe
+     * @param subjonctif Conjugue au subjonctif si true
+     * @return Un verbe conjugué au 6 personnes
+     */
+    public String conjugueTemps(String verbe, String temps, boolean subjonctif)
     {
         Verbe v = conjuguerVerbe.conjugue(verbe);
         Temps t = conjuguerTemps.conjugue(temps);
@@ -52,8 +60,16 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
         if (t == null) {
             return erreurTemps(temps);
         }
+        if (subjonctif && !(
+                temps.equalsIgnoreCase("Présent") ||
+                        temps.equalsIgnoreCase("Imparfait") ||
+                        temps.equalsIgnoreCase("Passé composé") ||
+                        temps.equalsIgnoreCase("Plus-que-parfait")))
+        {
+            return erreurSubjonctif(temps);
+        }
 
-        return t.conjugue(v);
+        return t.conjugue(v, subjonctif);
     }
 
     /**
@@ -88,5 +104,16 @@ public class Conjugaison extends UnicastRemoteObject implements IConjugaison
     private String erreurTemps(String temps)
     {
         return "ERREUR - Le temps \"" + temps + "\" n'est actuellement pas implémenté ou n'existe pas";
+    }
+
+    /**
+     * Le message d'erreur renvoyé lorsqu'un temps ne se conjugue pas au subjonctif
+     *
+     * @param temps L'infinitif du verbe
+     * @return Message d'erreur
+     */
+    private String erreurSubjonctif(String temps)
+    {
+        return "ERREUR - Le temps \"" + temps + "\" ne se conjugue pas au subjonctif";
     }
 }

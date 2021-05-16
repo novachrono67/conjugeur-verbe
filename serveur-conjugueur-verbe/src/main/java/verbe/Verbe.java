@@ -1,24 +1,27 @@
 package verbe;
 
+import auxilliaire.Auxiliaire;
+
 /**
  * Classe contenant le radical et la terminaison d'un verbe et permettant de conjuguer ce verbe
  */
 public abstract class Verbe
 {
-
 	protected String radical;
 	protected String terminaison;
+	protected Auxiliaire auxiliaire;
 
 	/**
 	 * Constructeur permettant de créer un objet verbe
 	 *
-	 * @param v           L'infinitif du verbe
+	 * @param verbe       L'infinitif du verbe
 	 * @param terminaison La terminaison du verbe
 	 */
-	public Verbe(String v, String terminaison)
+	public Verbe(String verbe, String terminaison)
 	{
 		this.terminaison = terminaison;
-		this.radical = v.substring(0, v.length() - this.terminaison.length());
+		this.radical = verbe.substring(0, verbe.length() - this.terminaison.length());
+		this.auxiliaire = Auxiliaire.getAuxiliaire(verbe);
 	}
 
 	//Terminaisons au présent simple
@@ -53,5 +56,16 @@ public abstract class Verbe
 	public String getRadical()
 	{
 		return this.radical;
+	}
+
+	public Auxiliaire getAuxiliaire()
+	{
+		return auxiliaire;
+	}
+
+	@Override
+	public String toString()
+	{
+		return radical + terminaison;
 	}
 }

@@ -5,51 +5,47 @@ import verbe.Verbe;
 public class TempsPresent extends Temps
 {
     private static String NOM_TEMPS = "Présent";
+    private static boolean TEMPS_COMPOSE = false;
 
     public TempsPresent()
     {
-        super(NOM_TEMPS);
+        super(NOM_TEMPS, TEMPS_COMPOSE);
     }
 
     @Override
-    public String conjugue1erePersonneSingulier(Verbe verbe)
+    public String conjugue1erePersonneSingulier(Verbe verbe, boolean subjonctif)
     {
-        if(verbe.toString().substring(0,1).equals("a") || verbe.toString().substring(0,1).equals("e") || verbe.toString().substring(0,1).equals("i") || verbe.toString().substring(0,1).equals("o") || verbe.toString().substring(0,1).equals("u") || verbe.toString().substring(0,1).equals("y")){
-            return "J'" + verbe.getRadical() + verbe.terminaison1erePS_Present();
-        }
-        else{
-            return "Je " + verbe.getRadical() + verbe.terminaison1erePS_Present();
-        }
+        return getPronom1erPS(verbe, subjonctif) + verbe.getRadical() + verbe.terminaison1erePS_Present();
     }
 
     @Override
-    public String conjugue2emePersonneSingulier(Verbe verbe)
+    public String conjugue2emePersonneSingulier(Verbe verbe, boolean subjonctif)
     {
-        return "Tu " + verbe.getRadical() + verbe.terminaison2emePS_Present();
+        return getPronom2emePS(subjonctif) + verbe.getRadical() + verbe.terminaison2emePS_Present();
     }
 
     @Override
-    public String conjugue3emePersonneSingulier(Verbe verbe)
+    public String conjugue3emePersonneSingulier(Verbe verbe, boolean subjonctif)
     {
-        return "Il/Elle " + verbe.getRadical() + verbe.terminaison3emePS_Present();
+        return getPronom3emePS(subjonctif) + verbe.getRadical() + verbe.terminaison3emePS_Present();
     }
 
     @Override
-    public String conjugue1erePersonnePluriel(Verbe verbe)
+    public String conjugue1erePersonnePluriel(Verbe verbe, boolean subjonctif)
     {
-        return "Nous " + verbe.getRadical() + verbe.terminaison1erePP_Present();
+        return getPronom1erePP(subjonctif) + verbe.getRadical() + verbe.terminaison1erePP_Present();
     }
 
     @Override
-    public String conjugue2emePersonnePluriel(Verbe verbe)
+    public String conjugue2emePersonnePluriel(Verbe verbe, boolean subjonctif)
     {
-        return "Vous " + verbe.getRadical() + verbe.terminaison2emePP_Present();
+        return getPronom2emePP(subjonctif) + verbe.getRadical() + verbe.terminaison2emePP_Present();
     }
 
     @Override
-    public String conjugue3emePersonnePluriel(Verbe verbe)
+    public String conjugue3emePersonnePluriel(Verbe verbe, boolean subjonctif)
     {
-        return "Ils/Elles " + verbe.getRadical() + verbe.terminaison3emePP_Present();
+        return getPronom3emePP(subjonctif) + verbe.getRadical() + verbe.terminaison3emePP_Present();
     }
 
     public static String getNomTemps()

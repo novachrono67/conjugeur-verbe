@@ -18,7 +18,7 @@ public interface IConjugaison extends Remote
      * @return String
      * @throws RemoteException
      */
-    String conjugueTemps(String verbe, String temps) throws RemoteException;
+    String conjugueTemps(String verbe, String temps, boolean subjonctif) throws RemoteException;
 
     /**
      * Méthode simple permettant de tester la connexion au serveur RMI
