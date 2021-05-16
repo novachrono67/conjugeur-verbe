@@ -14,7 +14,12 @@ public class TempsPresent extends Temps
     @Override
     public String conjugue1erePersonneSingulier(Verbe verbe)
     {
-        return "Je " + verbe.getRadical() + verbe.terminaison1erePS_Present();
+        if(verbe.toString().substring(0,1).equals("a") || verbe.toString().substring(0,1).equals("e") || verbe.toString().substring(0,1).equals("i") || verbe.toString().substring(0,1).equals("o") || verbe.toString().substring(0,1).equals("u") || verbe.toString().substring(0,1).equals("y")){
+            return "J'" + verbe.getRadical() + verbe.terminaison1erePS_Present();
+        }
+        else{
+            return "Je " + verbe.getRadical() + verbe.terminaison1erePS_Present();
+        }
     }
 
     @Override

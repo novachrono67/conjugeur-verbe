@@ -30,6 +30,9 @@ public class ConjugaisonController
     private ComboBox temps;
 
     @FXML
+    private Label labelError;
+
+    @FXML
     private TextArea resultat;
 
     @FXML
@@ -90,7 +93,15 @@ public class ConjugaisonController
                         ConnexionController.getPortServeur() + "/" + "conjugaison");
 
                 conjugaison = obj.conjugueTemps(verbeChoisis, tempsChoisis);
-                resultat.setText(conjugaison);
+                if(conjugaison.toString().substring(0,6).equals("ERREUR")){
+                    labelError.setVisible(true);
+                    labelError.setText(conjugaison);
+                    resultat.clear();
+                }
+                else{
+                    labelError.setVisible(false);
+                    resultat.setText(conjugaison);
+                }
             } catch (NotBoundException | RemoteException | MalformedURLException e) {
                 System.out.println("Exception caught: " + e.getMessage());
             }
